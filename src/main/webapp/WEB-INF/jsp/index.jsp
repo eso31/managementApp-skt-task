@@ -1,28 +1,21 @@
-<%@ page import="com.skytask.model.Product" %>
-<%@ page import="java.util.List" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<%
-List<Product> products = (List<Product>) request.getAttribute("products");
-%>
+  <head>
+    <title>Index</title>
+  </head>
+    List of products <a href="/create">Create Product</a>
 
-<table>
-
-<tr>
-<td>Name</td>
-<td>Description</td>
-<td>Price</td>
-<td>Stock</td>
-</tr>
-
-<% for(Product p : products){ %>
-<tr>
-<td><%= p.getName() %> </td>
-<td><%= p.getDescription() %></td>
-<td><%= p.getPrice() %></td>
-<td><%= p.getStock() %></td>
-
-</tr>
-
-<% } %>
-
-</table>
+    <table>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <c:forEach items="${products}" var="p">
+        <tr>
+          <td>${p.getName()}</td>
+          <td>${p.getDescription()}</td>
+          <td>${p.getPrice()}</td>
+          <td>${p.getStock()}</td>
+        </tr>
+      </c:forEach>
+    </table>

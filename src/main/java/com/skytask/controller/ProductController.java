@@ -13,16 +13,16 @@ import java.util.List;
 @Controller
 public class ProductController {
 
-    private ProductService _productService;
+    private ProductService productService;
 
     @Autowired
     public ProductController(ProductService productService) {
-        _productService = productService;
+        this.productService = productService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView list() {
-        List<Product> products = _productService.getList();
+        List<Product> products = productService.getList();
         return new ModelAndView("index", "products", products);
     }
 
@@ -33,7 +33,7 @@ public class ProductController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView create(Product product) {
-        _productService.create(product);
+        productService.create(product);
         return new ModelAndView("redirect:/");
     }
 }

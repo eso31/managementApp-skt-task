@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private ProductRepository _productRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
-        _productRepository = productRepository;
+        this.productRepository = productRepository;
     }
 
     public List<Product> getList() {
-        return _productRepository.findAll();
+        return productRepository.findAll();
     }
 
     public void create(Product product) {
-        _productRepository.saveAndFlush(product);
+        productRepository.saveAndFlush(product);
     }
 }
