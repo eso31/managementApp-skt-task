@@ -16,7 +16,7 @@ public class Product {
     private double price;
     private int stock;
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -63,11 +63,11 @@ public class Product {
     @Override
     public String toString() {
         return "{\n" +
-                "\"id\":\""+id+"\",\n" +
-                "\"name\":\""+name+"\",\n" +
-                "\"description\":\""+description+"\",\n" +
-                "\"price\":\""+price+"\",\n" +
-                "\"stock\":\""+stock+"\"\n" +
+                "\"id\":\"" + id + "\",\n" +
+                "\"name\":\"" + name + "\",\n" +
+                "\"description\":\"" + description + "\",\n" +
+                "\"price\":\"" + price + "\",\n" +
+                "\"stock\":\"" + stock + "\"\n" +
                 "}";
     }
 }

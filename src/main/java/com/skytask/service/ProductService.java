@@ -13,15 +13,15 @@ public class ProductService {
     private ProductRepository _productRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository){
+    public ProductService(ProductRepository productRepository) {
         _productRepository = productRepository;
     }
 
-    public List<Product> getList(){
+    public List<Product> getList() {
         return _productRepository.findAll();
     }
 
-    public void create(Product product){
+    public void create(Product product) {
         _productRepository.saveAndFlush(product);
     }
 }
