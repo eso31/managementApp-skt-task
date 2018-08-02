@@ -8,7 +8,5 @@ public interface IProductService {
 
     List<Product> getList();
 
-    void create(Product product);
-
     void setProducts(List<Product> products);
 }

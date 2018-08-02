@@ -5,6 +5,7 @@ import com.skytask.model.Product;
 import com.skytask.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.Tracer;
+import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +28,8 @@ class ProductController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView list() {
-        List<Product> products = productService.getList();
-        return new ModelAndView("index", "products", products);
+        productSource.productListOutput().send(MessageBuilder.withPayload("getProductsList").setCorrelationId(tracer.getCurrentSpan().getTraceId()).build());
+        return new ModelAndView("index", "products", productService.getList());
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -38,7 +39,7 @@ class ProductController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView create(Product product) {
-        productService.create(product);
+        productSource.productsOutput().send(MessageBuilder.withPayload(product).setCorrelationId(tracer.getCurrentSpan().getTraceId()).build());
         return new ModelAndView("redirect:/");
     }
 }
