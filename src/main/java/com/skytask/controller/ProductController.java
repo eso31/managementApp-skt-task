@@ -1,7 +1,7 @@
 package com.skytask.controller;
 
 import com.skytask.model.Product;
-import com.skytask.service.ProductService;
+import com.skytask.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class ProductController {
+class ProductController {
 
-    private ProductService productService;
+    private IProductService productService;
 
-    @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(IProductService productService) {
         this.productService = productService;
     }
 

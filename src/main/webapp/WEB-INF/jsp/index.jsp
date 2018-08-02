@@ -12,10 +12,10 @@
       <th>Stock</th>
       <c:forEach items="${products}" var="p">
         <tr>
-          <td>${p.getName()}</td>
-          <td>${p.getDescription()}</td>
-          <td>${p.getPrice()}</td>
-          <td>${p.getStock()}</td>
+          <td>${p.name}</td>
+          <td>${p.description}</td>
+          <td>${p.price}</td>
+          <td>${p.stock}</td>
         </tr>
       </c:forEach>
     </table>

@@ -16,10 +16,6 @@ public class Product {
     private double price;
     private int stock;
 
-    public Product() {
-
-    }
-
     public Long getId() {
         return id;
     }
