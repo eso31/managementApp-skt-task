@@ -11,6 +11,7 @@ import java.util.List;
 class ProductService implements IProductService{
 
     private ProductRepository productRepository;
+    private List<Product> products;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -22,5 +23,9 @@ class ProductService implements IProductService{
 
     public void create(Product product) {
         productRepository.saveAndFlush(product);
+    }
+
+    public void setProducts(List<Product> products){
+        this.products = products;
     }
 }

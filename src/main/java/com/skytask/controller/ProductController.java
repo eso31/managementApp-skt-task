@@ -1,8 +1,10 @@
 package com.skytask.controller;
 
+import com.skytask.channel.ProductSource;
 import com.skytask.model.Product;
 import com.skytask.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +16,13 @@ import java.util.List;
 class ProductController {
 
     private IProductService productService;
+    private ProductSource productSource;
+    private Tracer tracer;
 
-    public ProductController(IProductService productService) {
+    public ProductController(IProductService productService, ProductSource productSource, Tracer tracer) {
         this.productService = productService;
+        this.productSource = productSource;
+        this.tracer = tracer;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
