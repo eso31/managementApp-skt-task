@@ -20,7 +20,7 @@ public class Listener {
 
     @StreamListener("productListChannelInput")
     public void gettingProduct(String products) throws IOException {
-        System.out.println("I received: "+products);
+        System.out.println("I received: " + products);
         ObjectMapper mapper = new ObjectMapper();
         CollectionType type = mapper.getTypeFactory().constructCollectionType(List.class, Product.class);
         productService.setProducts(mapper.readValue(products, type));

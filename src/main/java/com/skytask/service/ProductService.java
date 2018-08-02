@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-class ProductService implements IProductService{
+class ProductService implements IProductService {
 
     private List<Product> products;
 
@@ -14,7 +14,7 @@ class ProductService implements IProductService{
         return products;
     }
 
-    public void setProducts(List<Product> products){
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 }

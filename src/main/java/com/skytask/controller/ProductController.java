@@ -3,7 +3,6 @@ package com.skytask.controller;
 import com.skytask.channel.ProductSource;
 import com.skytask.model.Product;
 import com.skytask.service.IProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
