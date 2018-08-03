@@ -1,20 +1,12 @@
 package com.skytask.service;
 
 import com.skytask.model.Product;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-class ProductService implements IProductService {
+public interface ProductService {
 
-    private List<Product> products;
+    List<Product> getProducts();
 
-    public List<Product> getList() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
+    void setProducts(List<Product> products);
 }
